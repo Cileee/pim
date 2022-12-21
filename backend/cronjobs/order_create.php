@@ -1,7 +1,7 @@
 <?php
 
-include_once '../classes/Order.php';
-include_once '../classes/Currency.php';
+include_once __DIR__ . '/../classes/Order.php';
+include_once __DIR__ . '/../classes/Currency.php';
 
 $currency_id = isset($_POST['currency_id']) ? $_POST['currency_id'] : null;
 $amount = isset($_POST['amount']) ? $_POST['amount'] : null;

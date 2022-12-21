@@ -5,8 +5,8 @@
   </head>
 
   <?php
-  include_once 'backend/config/Database.php';
-  include_once 'backend/classes/Currency.php';
+  include_once __DIR__ . '/backend/config/Database.php';
+  include_once __DIR__ . '/backend/classes/Currency.php';
 
   $data = new Currency();
   $currencies = $data->getCurrencies();

@@ -1,8 +1,8 @@
 <?php
 
-include_once '../config/Database.php';
-include_once '../classes/Currency.php';
-include_once '../api/CurrencyLayer.php';
+include_once __DIR__ . '/../config/Database.php';
+include_once __DIR__ . '/../classes/Currency.php';
+include_once __DIR__ . '/../api/CurrencyLayer.php';
 
 $item = new Currency();
 

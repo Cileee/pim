@@ -27,7 +27,12 @@
       <b>You will get <span class="converted_amount"></span> <span class="currency_chosen"></span> </b>
       <input type="submit" value="Purchase"></input>
     </form>
-
+    <div class="cd-popup" role="alert">
+      <div class="cd-popup-container">
+        <p class="confirmation"></p>
+        <a href="#0" class="cd-popup-close img-replace">Close</a>
+      </div> <!-- cd-popup-container -->
+    </div> <!-- cd-popup -->
   </body>
   <script type="text/javascript" src="frontend/js/jquery-3.6.3.min.js"></script>
   <script type="text/javascript" src="frontend/js/currency_exchange.js"></script>

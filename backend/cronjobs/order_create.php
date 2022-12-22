@@ -28,21 +28,32 @@ if ($currency->getDiscount() > 0) {
 
 $item->setDateCreated(date("Y-m-d H:i:s"));
 
-if ($item->createOrder()) {
-    echo json_encode("Order created");
-    sendMail($item);
+if ($item->createOrder()) {    
+    $date_created = strtotime($item->getDateCreated());
+    $date_created = date('d.m.Y', $date_created);
+
+    //sendMail($item, $date_created);
+    
+    $response = [
+                'Exchange rate' => $item->getExchangeRate(), 
+                'Surcharge' => $item->getExchangeRate(),
+                'Surcharge amount' => $item->getSurchargeAmount(),
+                'Purchased amount' => $item->getPurchasedAmount(),
+                'Paid amount' => $item->getPaidAmount(),
+                'Discount' => $item->getDiscount(),
+                'Discount amount' => $item->getDiscountAmount(),
+                'Order created' => $date_created,
+    ];
+    echo json_encode($response); 
 } else {
     echo json_encode("Order could not be created");
 }
 
-function sendMail($item)
+function sendMail($item, $date_created)
 {
     if ($item->getCurrencyId() == 3) {
         $to = 'cicmil.milos@gmail.com';
         $subject = 'Mail sent from sendmail PHP script';
-
-        $date_created = strtotime($item->getDateCreated());
-        $date_created = date('d.m.Y', $date_created);
 
         //TEXT at left margin because of end of file error
         $message = <<<TEXT
